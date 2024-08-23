@@ -14,7 +14,7 @@ $userProfile = [Environment]::GetEnvironmentVariable("USERPROFILE")
 $destinationPath = "$userProfile\AppData\Roaming\Microsoft\AddIns\"
 
 # ファイルをコピー
-# Copy-Item -Path $sourceAddinPath -Destination $destinationPath -Force
+Copy-Item -Path $sourceAddinPath -Destination $destinationPath -Force
 
 if (-not (Test-Path $sourceAddinPath)) {
   New-Item -Type File "$currentPath\copy_ng"
