@@ -3,7 +3,7 @@ name: Build and Deploy Asciidoc to GitHub Pages
 on:
   push:
     branches:
-      - gh-page # メインブランチへのプッシュ時に実行
+      - gh-page # gh-pageブランチにプッシュ時に実行
 
 jobs:
   build:
@@ -21,10 +21,11 @@ jobs:
       # AsciidocファイルをHTMLに変換
       - name: Convert Asciidoc to HTML
         run: |
-          mkdir -p build
-          find . -name "*.adoc" -exec asciidoctor -D build {} \;
+          mkdir -p build/css
+          asciidoctor -o build/index.html index.adoc
+          cp -r css/ build/css/
 
-      # GitHub Pagesへのデプロイ
+      # GitHub Pagesにデプロイ
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
