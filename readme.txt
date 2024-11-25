@@ -54,7 +54,7 @@
 
 ○アンインストール
 1. 「アドインの無効」の手順を実施
-2. 「〇インストール」で作成したショートカットリンクからアドインの格納先に遷移し「SearchExtensionAddin.xlam」を削除
+2. 「インストール」で作成したショートカットリンクからアドインの格納先に遷移し「SearchExtensionAddin.xlam」を削除
 　ショートカットリンク先：C:\Users\<ユーザ名>\AppData\Roaming\Microsoft\AddIns
 3. エクセル画面の「開発」タブ→「EXCEL アドイン」を押下
 4. アドインのポップアップ画面上の「Searchextensionaddin」の押下すると確認メッセージが出るため「はい」を押下
