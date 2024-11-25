@@ -1,0 +1,32 @@
+name: Build and Deploy Asciidoc to GitHub Pages
+
+on:
+  push:
+    branches:
+      - gh-page # メインブランチへのプッシュ時に実行
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # リポジトリのチェックアウト
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Asciidoctorのインストール
+      - name: Install Asciidoctor
+        run: sudo apt-get update && sudo apt-get install -y asciidoctor
+
+      # AsciidocファイルをHTMLに変換
+      - name: Convert Asciidoc to HTML
+        run: |
+          mkdir -p build
+          find . -name "*.adoc" -exec asciidoctor -D build {} \;
+
+      # GitHub Pagesへのデプロイ
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build
