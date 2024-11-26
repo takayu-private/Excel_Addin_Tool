@@ -307,6 +307,7 @@ link:https://github.com/takayu-private/Excel_Addin_Tool/releases/[最新バー�
 
 入力フォームの設定不足、設定内容が不正だった場合に以下のメッセージが表示される。
 
+.エラーメッセージ一覧
 [options="header, autowidth"]
 |===
 | メッセージ内容 | 条件 | 出力機能
@@ -332,6 +333,7 @@ or +
 ----
 
 .エラーメッセージの項目
+[options="header, autowidth"]
 |===
 | 項目 | 内容
 
