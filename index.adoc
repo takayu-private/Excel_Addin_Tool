@@ -8,6 +8,16 @@
 
 = エクセル検索拡張ツール
 
+== はじめに
+
+本ツールは素人かつ個人で作成しているツールであり、バグやその他の問題が発生する可能性がありますが、作成者はその責任を負いません。すべての責任は使用者本人で負ってください。 +
+また、本ツールは非商用利用可能です。商用利用する際は作成者の許可を得る必要があります。 +
+ライセンスの詳細はlink:https://github.com/takayu-private/Excel_Addin_Tool/tree/main?tab=License-1-ov-file[LICENSE]を参照してください。
+
+== ダウンロード
+
+link:https://github.com/takayu-private/Excel_Addin_Tool/releases/[最新バージョン]
+
 == ツール概要
 
 本ツールはエクセルの検索機能を拡張するためのものである。
