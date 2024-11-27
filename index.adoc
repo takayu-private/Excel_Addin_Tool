@@ -5,6 +5,8 @@
 :sectnums:
 :sectnumlevels: 5
 :table-caption: 表
+:revnumber: 4.1
+:lang: ja
 
 = エクセル検索拡張ツール
 
@@ -37,13 +39,13 @@ link:https://github.com/takayu-private/Excel_Addin_Tool/releases/[最新バー�
 
 == 機能詳細
 
-=== 図形内文字列検索
+=== ブック内検索
 
 ==== ブック内検索
 
 ===== 機能概要
 
-ブック内にある図形内の文字列を検索できる。
+ブック内にあるセル・図形内の文字列を検索できる。
 
 ===== 機能詳細
 
@@ -68,6 +70,10 @@ link:https://github.com/takayu-private/Excel_Addin_Tool/releases/[最新バー�
 ・すべて +
 ・セル +
 ・図形
+| 検索対象 | プルダウン | 検索対象を選択する。 +
+・値 +
+・数式 +
+・コメント
 | 大文字小文字を区別 | チェックボックス | 大文字小文字を区別して検索する。
 | 正規表現 | チェックボックス | 正規表現で検索する。
 |===
@@ -78,15 +84,14 @@ link:https://github.com/takayu-private/Excel_Addin_Tool/releases/[最新バー�
 +
 .. すべて検索
 +
-「<<shapeSearchTable1, 検索場所>>」で設定した範囲内で「<<shapeSearchTable1, 検索範囲>>」で設定したものを対象に検索した結果の一覧を入力フォーム下部に出力する。
+「<<shapeSearchTable1, 表>>」のプルダウン項目、チェックボックス項目の条件で検索し、結果の一覧を入力フォーム下部に出力する。
 出力内容は「<<shapeSearch3, 検索結果一覧>>」を参照 +
 +
 また、検索にヒットした件数をフォーム最下部に表示する。
 +
 .. 次を検索
 +
-「<<shapeSearchTable1, 検索場所>>」で設定した範囲内で「<<shapeSearchTable1, 検索範囲>>」で設定したものを対象に検索でヒットしたセル・図形を選択する。
-検索にヒットしたものが図形で図形の場所が画面表示外の場合は画面内に収まるように移動する。
+「<<shapeSearchTable1, 表>>」のプルダウン項目、チェックボックス項目の条件で検索し、検索にヒットしたセル・図形を選択する。
 複数回実行した場合は他の検索にヒットしたセル・図形に移動する。
 +
 . [[shapeSearch3]] 検索結果一覧
@@ -100,10 +105,15 @@ link:https://github.com/takayu-private/Excel_Addin_Tool/releases/[最新バー�
 |===
 | 項目 | 内容
 
+| 図形ID | 非表示項目(幅が0の状態) +
+図形ID
 | シート | 対象のシート名
 | セル/図形名 | 対象のセル・図形名
 | 値 | セル・図形内の文字列
+| 数式 | セル内の数式(数式が存在しない場合は空欄)
 |===
++
+一覧内にある項目を押下した場合、対象のセル・図形が選択される。 
 
 ==== ブック内置換
 
@@ -135,12 +145,11 @@ link:https://github.com/takayu-private/Excel_Addin_Tool/releases/[最新バー�
 +
 .. すべて置換
 +
-「<<shapeSearchTable1, 検索場所>>」で設定した範囲内で「<<shapeSearchTable1, 検索範囲>>」で設定したものを対象に検索でヒットしたすべての文字列を「<<shapeSearchTable3, 置換後の文字列>>」で設定した文字列に置換する。
+「<<shapeSearchTable1, 表>>」のプルダウン項目、チェックボックス項目の条件で検索し、検索でヒットしたすべての文字列を「<<shapeSearchTable3, 置換後の文字列>>」で設定した文字列に置換する。
 +
 .. 置換
 +
-「<<shapeSearchTable1, 検索場所>>」で設定した範囲内で「<<shapeSearchTable1, 検索範囲>>」で設定したものを対象に検索でヒットした文字列を「<<shapeSearchTable3, 置換後の文字列>>」で設定した文字列に置換し、選択状態にする。
-選択状態にしたものが図形で画面表示外の場合は画面内に収まるように移動する。
+「<<shapeSearchTable1, 表>>」のプルダウン項目、チェックボックス項目の条件で検索し、検索でヒットした文字列を「<<shapeSearchTable3, 置換後の文字列>>」で設定した文字列に置換し、選択状態にする。
 +
 . 検索実行
 +
@@ -184,6 +193,10 @@ link:https://github.com/takayu-private/Excel_Addin_Tool/releases/[最新バー�
 ・すべて：セル、図形すべての文字列 +
 ・セル：セル内の文字列 +
 ・図形：図形内の文字列
+| 検索対象 | プルダウン | 検索対象を選択する。 +
+・値 +
+・数式 +
+・コメント
 | サブディレクトリ検索 | チェックボックス | サブディレクトリも検索する。
 | 大文字小文字を区別 | チェックボックス | 大文字小文字を区別して検索する。
 | 正規表現 | チェックボックス | 正規表現で検索する。
@@ -195,8 +208,8 @@ link:https://github.com/takayu-private/Excel_Addin_Tool/releases/[最新バー�
 +
 .. 検索
 +
-「<<fileSearchTable1, 検索場所>>」で設定したディレクトリ内にある「<<fileSearchTable1, 対象ファイル>>」で設定したファイルにある文字列を検索する。 +
-検索対象は「<<fileSearchTable1, 検索範囲>>」で指定した項目となる。 +
+「<<fileSearchTable1, 検索場所>>」、「<<fileSearchTable1, 対象ファイル>>」で設定したファイルにある文字列を検索する。 +
+検索対象は「<<shapeSearchTable1, 表>>」のプルダウン項目、チェックボックス項目で指定した項目となる。 +
 結果は「【ファイル検索】検索結果」シートに出力される。 +
 出力内容は「<<fileSearch3, 検索結果>>」参照
 +
@@ -218,7 +231,8 @@ link:https://github.com/takayu-private/Excel_Addin_Tool/releases/[最新バー�
 | セル/図形名 | 検索でヒットした種類により以下が出力される。 +
 セル：セルアドレス +
 図形：オブジェクト名
-| 検索結果 | 対象セル・図形の文字列
+| 検索結果(値) | 対象セル・図形の文字列
+| 検索結果(数式) | 対象セルの数式(数式が存在しない場合は空欄)
 |===
 +
 . 制限事項
@@ -269,8 +283,8 @@ link:https://github.com/takayu-private/Excel_Addin_Tool/releases/[最新バー�
 +	
 * 置換
 +
-「<<fileSearchTable1, 検索場所>>」で設定したディレクトリ内の「<<fileSearchTable1, 対象ファイル>>」で設定したファイル名にある文字列を検索する。 +
-検索対象は「<<fileSearchTable1, 検索範囲>>」で指定した項目となる。 +
+「<<fileSearchTable1, 検索場所>>」、「<<fileSearchTable1, 対象ファイル>>」で設定したファイルにある文字列を検索する。 +
+検索対象は「<<shapeSearchTable1, 表>>」のプルダウン項目、チェックボックス項目で指定した項目となる。 +
 検索がヒットした場合は「<<fileReplaceTable1, 置換後の文字列>>」で設定した文字列に置換する。
 結果は「【ファイル検索】置換結果」シートに出力される。 +
 出力内容は「<<fileReplace4, 置換結果>>」参照
@@ -286,7 +300,8 @@ link:https://github.com/takayu-private/Excel_Addin_Tool/releases/[最新バー�
 | 項目 | 内容
 
 | 置換キーワード | 「<<fileReplaceTable1, 置換後の文字列>>」の内容
-| 置換結果 | 置換後の対象セル・図形の文字列
+| 置換結果(値) | 置換後の対象セル・図形の文字列
+| 置換結果(数式) | 置換後の対象セルの数式(数式が存在しない場合は空欄)
 |===
 
 === 共通補助機能
