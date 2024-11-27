@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -1690,6 +1690,9 @@
 <body class="article toc2 toc-left">
 <div id="header">
 <h1>エクセル検索拡張ツール</h1>
+<div class="details">
+<span id="revnumber">version 4.1</span>
+</div>
 <div id="toc" class="toc2">
 <div id="toctitle">目次</div>
 <ul class="sectlevel1">
@@ -1699,9 +1702,9 @@
 <li><a href="#_機能一覧">4. 機能一覧</a></li>
 <li><a href="#_機能詳細">5. 機能詳細</a>
 <ul class="sectlevel2">
-<li><a href="#_図形内文字列検索">5.1. 図形内文字列検索</a>
+<li><a href="#_ブック内検索">5.1. ブック内検索</a>
 <ul class="sectlevel3">
-<li><a href="#_ブック内検索">5.1.1. ブック内検索</a>
+<li><a href="#_ブック内検索_2">5.1.1. ブック内検索</a>
 <ul class="sectlevel4">
 <li><a href="#_機能概要">5.1.1.1. 機能概要</a></li>
 <li><a href="#_機能詳細_2">5.1.1.2. 機能詳細</a></li>
@@ -1814,13 +1817,13 @@
 <h2 id="_機能詳細">5. 機能詳細</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_図形内文字列検索">5.1. 図形内文字列検索</h3>
+<h3 id="_ブック内検索">5.1. ブック内検索</h3>
 <div class="sect3">
-<h4 id="_ブック内検索">5.1.1. ブック内検索</h4>
+<h4 id="_ブック内検索_2">5.1.1. ブック内検索</h4>
 <div class="sect4">
 <h5 id="_機能概要">5.1.1.1. 機能概要</h5>
 <div class="paragraph">
-<p>ブック内にある図形内の文字列を検索できる。</p>
+<p>ブック内にあるセル・図形内の文字列を検索できる。</p>
 </div>
 </div>
 <div class="sect4">
@@ -1872,6 +1875,14 @@
 ・図形</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">検索対象</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">プルダウン</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">検索対象を選択する。<br>
+・値<br>
+・数式<br>
+・コメント</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">大文字小文字を区別</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">チェックボックス</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">大文字小文字を区別して検索する。</p></td>
@@ -1894,7 +1905,7 @@
 <li>
 <p>すべて検索</p>
 <div class="paragraph">
-<p>「<a href="#shapeSearchTable1">検索場所</a>」で設定した範囲内で「<a href="#shapeSearchTable1">検索範囲</a>」で設定したものを対象に検索した結果の一覧を入力フォーム下部に出力する。
+<p>「<a href="#shapeSearchTable1">表</a>」のプルダウン項目、チェックボックス項目の条件で検索し、結果の一覧を入力フォーム下部に出力する。
 出力内容は「<a href="#shapeSearch3">検索結果一覧</a>」を参照<br></p>
 </div>
 <div class="paragraph">
@@ -1904,8 +1915,7 @@
 <li>
 <p>次を検索</p>
 <div class="paragraph">
-<p>「<a href="#shapeSearchTable1">検索場所</a>」で設定した範囲内で「<a href="#shapeSearchTable1">検索範囲</a>」で設定したものを対象に検索でヒットしたセル・図形を選択する。
-検索にヒットしたものが図形で図形の場所が画面表示外の場合は画面内に収まるように移動する。
+<p>「<a href="#shapeSearchTable1">表</a>」のプルダウン項目、チェックボックス項目の条件で検索し、検索にヒットしたセル・図形を選択する。
 複数回実行した場合は他の検索にヒットしたセル・図形に移動する。</p>
 </div>
 </li>
@@ -1932,6 +1942,11 @@
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">図形ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">非表示項目(幅が0の状態)<br>
+図形ID</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">シート</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">対象のシート名</p></td>
 </tr>
@@ -1943,8 +1958,15 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">値</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">セル・図形内の文字列</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">数式</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">セル内の数式(数式が存在しない場合は空欄)</p></td>
+</tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>一覧内にある項目を押下した場合、対象のセル・図形が選択される。</p>
+</div>
 </li>
 </ol>
 </div>
@@ -2004,14 +2026,13 @@
 <li>
 <p>すべて置換</p>
 <div class="paragraph">
-<p>「<a href="#shapeSearchTable1">検索場所</a>」で設定した範囲内で「<a href="#shapeSearchTable1">検索範囲</a>」で設定したものを対象に検索でヒットしたすべての文字列を「<a href="#shapeSearchTable3">置換後の文字列</a>」で設定した文字列に置換する。</p>
+<p>「<a href="#shapeSearchTable1">表</a>」のプルダウン項目、チェックボックス項目の条件で検索し、検索でヒットしたすべての文字列を「<a href="#shapeSearchTable3">置換後の文字列</a>」で設定した文字列に置換する。</p>
 </div>
 </li>
 <li>
 <p>置換</p>
 <div class="paragraph">
-<p>「<a href="#shapeSearchTable1">検索場所</a>」で設定した範囲内で「<a href="#shapeSearchTable1">検索範囲</a>」で設定したものを対象に検索でヒットした文字列を「<a href="#shapeSearchTable3">置換後の文字列</a>」で設定した文字列に置換し、選択状態にする。
-選択状態にしたものが図形で画面表示外の場合は画面内に収まるように移動する。</p>
+<p>「<a href="#shapeSearchTable1">表</a>」のプルダウン項目、チェックボックス項目の条件で検索し、検索でヒットした文字列を「<a href="#shapeSearchTable3">置換後の文字列</a>」で設定した文字列に置換し、選択状態にする。</p>
 </div>
 </li>
 </ol>
@@ -2102,6 +2123,14 @@
 ・図形：図形内の文字列</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">検索対象</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">プルダウン</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">検索対象を選択する。<br>
+・値<br>
+・数式<br>
+・コメント</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">サブディレクトリ検索</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">チェックボックス</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">サブディレクトリも検索する。</p></td>
@@ -2129,8 +2158,8 @@
 <li>
 <p>検索</p>
 <div class="paragraph">
-<p>「<a href="#fileSearchTable1">検索場所</a>」で設定したディレクトリ内にある「<a href="#fileSearchTable1">対象ファイル</a>」で設定したファイルにある文字列を検索する。<br>
-検索対象は「<a href="#fileSearchTable1">検索範囲</a>」で指定した項目となる。<br>
+<p>「<a href="#fileSearchTable1">検索場所</a>」、「<a href="#fileSearchTable1">対象ファイル</a>」で設定したファイルにある文字列を検索する。<br>
+検索対象は「<a href="#shapeSearchTable1">表</a>」のプルダウン項目、チェックボックス項目で指定した項目となる。<br>
 結果は「【ファイル検索】検索結果」シートに出力される。<br>
 出力内容は「<a href="#fileSearch3">検索結果</a>」参照</p>
 </div>
@@ -2184,8 +2213,12 @@
 図形：オブジェクト名</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">検索結果</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">検索結果(値)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">対象セル・図形の文字列</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">検索結果(数式)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">対象セルの数式(数式が存在しない場合は空欄)</p></td>
 </tr>
 </tbody>
 </table>
@@ -2296,8 +2329,8 @@
 <li>
 <p>置換</p>
 <div class="paragraph">
-<p>「<a href="#fileSearchTable1">検索場所</a>」で設定したディレクトリ内の「<a href="#fileSearchTable1">対象ファイル</a>」で設定したファイル名にある文字列を検索する。<br>
-検索対象は「<a href="#fileSearchTable1">検索範囲</a>」で指定した項目となる。<br>
+<p>「<a href="#fileSearchTable1">検索場所</a>」、「<a href="#fileSearchTable1">対象ファイル</a>」で設定したファイルにある文字列を検索する。<br>
+検索対象は「<a href="#shapeSearchTable1">表</a>」のプルダウン項目、チェックボックス項目で指定した項目となる。<br>
 検索がヒットした場合は「<a href="#fileReplaceTable1">置換後の文字列</a>」で設定した文字列に置換する。
 結果は「【ファイル検索】置換結果」シートに出力される。<br>
 出力内容は「<a href="#fileReplace4">置換結果</a>」参照</p>
@@ -2330,8 +2363,12 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">「<a href="#fileReplaceTable1">置換後の文字列</a>」の内容</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">置換結果</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">置換結果(値)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">置換後の対象セル・図形の文字列</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">置換結果(数式)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">置換後の対象セルの数式(数式が存在しない場合は空欄)</p></td>
 </tr>
 </tbody>
 </table>
@@ -2457,7 +2494,8 @@ or<br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-11-26 01:40:46 UTC
+Version 4.1<br>
+Last updated 2024-11-27 05:59:29 UTC
 </div>
 </div>
 </body>
