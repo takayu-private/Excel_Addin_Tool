@@ -31,6 +31,11 @@ jobs:
         run: |
           echo "url: https://takayu-private.github.io" > build/_config.yml
 
+      # robots.txt を生成
+      - name: Generate robots.txt
+        run: |
+          echo -e "User-agent: *\nAllow: /\nSitemap: https://takayu-private.github.io/Excel_Addin_Tool/sitemap.xml" > build/robots.txt
+
       # GitHub Pagesにデプロイ
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -41,10 +46,11 @@ jobs:
       # デプロイ後に .nojekyll を削除
       - name: Remove .nojekyll after deployment
         run: |
-          git clone --branch=gh-pages https://github.com/${{ github.repository }} gh-pages
-          cd gh-pages
           rm -f .nojekyll
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor }}@users.noreply.github.com"
-          git commit -am "Remove .nojekyll"
-          git push origin gh-pages
+          git commit -am "Remove .nojekyll" || echo "No changes to commit"
+          git push
+        working-directory: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
