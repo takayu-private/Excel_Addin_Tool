@@ -24,16 +24,12 @@ jobs:
           mkdir -p build/css
           asciidoctor -o build/index.html index.adoc
           cp -r css/ build/css/
+          cp -p google315baa97548ac183.html build/
 
       # _config.yml を生成
       - name: Generate _config.yml
         run: |
           echo "url: https://takayu-private.github.io" > build/_config.yml
-
-      # .nojekyll を削除
-      - name: Remove .nojekyll
-        run: |
-          rm -f build/.nojekyll
 
       # GitHub Pagesにデプロイ
       - name: Deploy to GitHub Pages
@@ -41,3 +37,14 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: build
+
+      # デプロイ後に .nojekyll を削除
+      - name: Remove .nojekyll after deployment
+        run: |
+          git clone --branch=gh-pages https://github.com/${{ github.repository }} gh-pages
+          cd gh-pages
+          rm -f .nojekyll
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+          git commit -am "Remove .nojekyll"
+          git push origin gh-pages
