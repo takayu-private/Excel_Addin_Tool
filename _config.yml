@@ -1,1 +1,2 @@
-url: https://takayu-private.github.io
+plugins:
+  - jekyll-sitemap
