@@ -46,11 +46,10 @@ jobs:
       # デプロイ後に .nojekyll を削除
       - name: Remove .nojekyll after deployment
         run: |
+          git clone --branch=gh-pages https://github.com/${{ github.repository }} gh-pages
+          cd gh-pages
           rm -f .nojekyll
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor }}@users.noreply.github.com"
           git commit -am "Remove .nojekyll" || echo "No changes to commit"
           git push
-        working-directory: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
