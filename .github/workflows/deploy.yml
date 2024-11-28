@@ -25,6 +25,16 @@ jobs:
           asciidoctor -o build/index.html index.adoc
           cp -r css/ build/css/
 
+      # _config.yml を生成
+      - name: Generate _config.yml
+        run: |
+          echo "url: https://takayu-private.github.io" > build/_config.yml
+
+      # .nojekyll を削除
+      - name: Remove .nojekyll
+        run: |
+          rm -f build/.nojekyll
+
       # GitHub Pagesにデプロイ
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
