@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://takayu-private.github.io/Excel_Addin_Tool/sitemap.xml
