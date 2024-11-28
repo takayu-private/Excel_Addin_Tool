@@ -29,7 +29,8 @@ jobs:
       # _config.yml を生成
       - name: Generate _config.yml
         run: |
-          echo "url: https://takayu-private.github.io" > build/_config.yml
+          echo "plugins:" >> build/_config.yml
+          echo "  - jekyll-sitemap" >> build/_config.yml
 
       # robots.txt を生成
       - name: Generate robots.txt
