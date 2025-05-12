@@ -2,7 +2,9 @@
 $currentPath = Get-Location
 
 # アドインファイル名
-$addinFileName = "SearchExtensionAddin.xlam"
+$SearchAddinFile = "SearchExtensionAddin.xlam"
+$FunctionAddinFile = "FunctionExtensionAddin.xlam"
+$addinFileList = $SearchAddinFile, $FunctionAddinFile
 
 # 元のアドインファイルのパス
 $sourceAddinPath = "$currentPath\SearchExtensionAddin.xlam"
